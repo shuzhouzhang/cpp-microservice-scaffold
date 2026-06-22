@@ -1,5 +1,7 @@
 #include"../../source/util.h"
 
+#include <iostream>
+
 void serializeTest()
 {
     Json::Value root;
