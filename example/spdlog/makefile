@@ -1,5 +1,4 @@
-GFLAGS=-I../../source
-log-test.:log_test.cc ../../source/bitelog.cc
-	g++ $(GFLAGS) $^ -o $@ -lspdlog -lfmt -lgflags -lpthread
+stdout : stdout.cc
+	g++ $^ -o $@ -lspdlog -lpthread -lfmt
 clean:
-	rm -rf log-test.
+	rm -f stdout

@@ -1,0 +1,37 @@
+//1.定义声明语法版本
+//2.定义包名称
+//3.声明启用rpc
+//4.枚举定义
+//5，消息定义
+syntax = "proto3";
+package person;
+option cc_generic_services=true;
+
+// 枚举定义
+enum Gender {
+  UNKNOWN = 0;
+  MALE = 1;
+  FEMALE = 2;
+}
+
+// 消息定义：人的基本信息
+message Person {
+  string name = 1;
+  int32 age = 2;
+  Gender gender = 3;
+}
+
+// 请求消息
+message GetPersonRequest {
+  int32 id = 1;
+}
+
+// 响应消息
+message GetPersonResponse {
+  Person person = 1;
+}
+
+// 声明 RPC 服务
+service PersonService {
+  rpc GetPerson(GetPersonRequest) returns (GetPersonResponse);
+}
